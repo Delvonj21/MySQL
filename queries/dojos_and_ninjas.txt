@@ -1,0 +1,31 @@
+INSERT INTO dojos (name)
+VALUES ('Akhara'),
+('Dojang'),
+('Gelanggang'); 
+
+DELETE FROM dojos WHERE id = 1 OR id = 2 OR id = 3;
+
+INSERT INTO dojos (name)
+VALUES ('kendo'), ('hall'), ('koryu');
+
+INSERT INTO ninjas (dojo_id, first_name, last_name, age)
+VALUES (4, 'snake', 'eyes', 23),(4, 'bruce', 'lee', 65),(4, 'dragonfly', 'jones', 33),
+    (5, 'leonardo', 'turtle', 14),(5, 'kyo', 'enforcer', 24),(5, 'scorpion', 'mk', 99),
+      (6, 'lloyd', 'garmadon', 2),(6, 'casey', 'bowman', 53),(6, 'jubei', 'kibagami', 73);
+
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 4;
+
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 6;
+
+SELECT * FROM dojos
+WHERE dojos.id = (SELECT dojo_id FROM ninjas ORDER BY dojo_id DESC LIMIT 1);
+
+
+
+
+
+
